@@ -2,9 +2,10 @@ package database
 
 import (
 	"fmt"
-	"github.com/jinzhu/gorm"
 	_ "github.com/lib/pq"
 	"github.com/spf13/viper"
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
 )
 
 func InitDB() (*gorm.DB, error) {
@@ -14,13 +15,13 @@ func InitDB() (*gorm.DB, error) {
 	port := viper.GetInt("Database.Port")
 	dbname := viper.GetString("Database.DBName")
 	dsn := fmt.Sprintf("host=%s user=%s password=%s port=%d dbname=%s sslmode=disable", host, username, password, port, dbname)
-	db, err := gorm.Open("postgres", dsn)
+	db, err := gorm.Open(postgres.Open(dsn))
 
 	if err != nil {
 		return nil, err
 	}
-
-	if err := db.DB().Ping(); err != nil {
+	sqlDB, err := db.DB()
+	if err := sqlDB.Ping(); err != nil {
 		return nil, err
 	}
 

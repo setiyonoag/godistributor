@@ -5,24 +5,23 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/jinzhu/gorm"
+	"gorm.io/gorm"
 )
 
 type CreateSecDistribInput struct {
-	NameSD				string 	`json:"nameSD"`
-	AddressSD			string	`json:"addressSD"`
-	LocationSD			string	`json:"locationSD"`
-	StockSD				int		`json:"stockSD"`
-	IdMD				int
-	MainDistributor		[]entity.MainDistributor
+	NameSD     string `json:"nameSD"`
+	AddressSD  string `json:"addressSD"`
+	LocationSD string `json:"locationSD"`
+	StockSD    int    `json:"stockSD"`
+	IdMD       int
 }
 
 type UpdateSecDistribInput struct {
-	NameSD				string 	`json:"nameSD"`
-	AddressSD			string	`json:"addressSD"`
-	LocationSD			string	`json:"locationSD"`
-	StockSD				int		`json:"stockSD"`
-	IdMD				int		`gorm:"index:,unique"`
+	NameSD     string `json:"nameSD"`
+	AddressSD  string `json:"addressSD"`
+	LocationSD string `json:"locationSD"`
+	StockSD    int    `json:"stockSD"`
+	IdMD       int
 }
 
 // GET /distribs
@@ -48,7 +47,7 @@ func CreateSecDistrib(c *gin.Context) {
 	//deadline, _ := time.Parse(date, input.Deadline)
 
 	// Create task
-	secDistrib := entity.SecDistributor {
+	secDistrib := entity.SecDistributor{
 		NameSD: input.NameSD, AddressSD: input.AddressSD,
 		LocationSD: input.LocationSD, StockSD: input.StockSD, IdMD: input.IdMD,
 	}

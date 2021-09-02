@@ -2,11 +2,11 @@ package api
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/jinzhu/gorm"
 	"godistributor/internal/controllers"
+	"gorm.io/gorm"
 )
 
-func SetupRouter(db *gorm.DB) *gin.Engine  {
+func SetupRouter(db *gorm.DB) *gin.Engine {
 	//router := gin.Default()
 	//
 	//mdrepo := repo.NewMDRepo(db)

@@ -1,8 +1,8 @@
 package repo
 
 import (
-	"github.com/jinzhu/gorm"
 	"godistributor/internal/entity"
+	"gorm.io/gorm"
 )
 
 type SDRepo struct {

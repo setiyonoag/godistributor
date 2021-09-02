@@ -4,22 +4,22 @@ import (
 	"godistributor/internal/entity"
 	"net/http"
 
-"github.com/gin-gonic/gin"
-"github.com/jinzhu/gorm"
+	"github.com/gin-gonic/gin"
+	"gorm.io/gorm"
 )
 
 type CreateDistribInput struct {
-	NameMD				string 	`json:"nameMD"`
-	AddressMD			string	`json:"addressMD"`
-	LocationMD			string	`json:"locationMD"`
-	StockMD				int		`json:"stockMD"`
+	NameMD     string `json:"nameMD"`
+	AddressMD  string `json:"addressMD"`
+	LocationMD string `json:"locationMD"`
+	StockMD    int    `json:"stockMD"`
 }
 
 type UpdateDistribInput struct {
-	NameMD				string 	`json:"nameMD"`
-	AddressMD			string	`json:"addressMD"`
-	LocationMD			string	`json:"locationMD"`
-	StockMD				int		`json:"stockMD"`
+	NameMD     string `json:"nameMD"`
+	AddressMD  string `json:"addressMD"`
+	LocationMD string `json:"locationMD"`
+	StockMD    int    `json:"stockMD"`
 }
 
 // GET /distribs
@@ -45,7 +45,7 @@ func CreateDistrib(c *gin.Context) {
 	//deadline, _ := time.Parse(date, input.Deadline)
 
 	// Create task
-	mainDistrib := entity.MainDistributor {
+	mainDistrib := entity.MainDistributor{
 		NameMD: input.NameMD, AddressMD: input.AddressMD,
 		LocationMD: input.LocationMD, StockMD: input.StockMD,
 	}
