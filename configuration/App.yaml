@@ -1,0 +1,15 @@
+App:
+  port: 2222
+
+Database:
+  Host: "localhost"
+  Port: 5432
+  Username: "postgres"
+  Password: "pro5"
+  DBName: "newgodistributor"
+
+#Files:
+#  Path: "./files"
+#
+#Jwt:
+#  Secret: ""
