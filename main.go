@@ -11,13 +11,13 @@ import (
 	"log"
 )
 
-func init()  {
+func init() {
 	config.GetConfig()
 }
 
-func main()  {
+func main() {
 	db, err := database.InitDB()
-	db.AutoMigrate(&entity.MainDistributor{}, &entity.SecDistributor{}, &entity.Artikel{}, &entity.Komentar{})
+	db.AutoMigrate(&entity.MainDistributor{}, &entity.SecDistributor{})
 
 	if err != nil {
 		log.Fatal("Failed to open a DB Connection: ", err)
@@ -25,10 +25,9 @@ func main()  {
 	}
 	defer db.Close()
 
-	port := fmt.Sprintf(":%d",viper.GetInt("App.Port"))
+	port := fmt.Sprintf(":%d", viper.GetInt("App.Port"))
 	app := api.SetupRouter(db)
 	app.Run(port)
-
 
 	//db := entity.SetupDB()
 	//db.AutoMigrate(&entity.MainDistributor{}, &entity.SecDistributor{})
