@@ -1,3 +1,4 @@
+<h4>ditributor API with Golang</h4>
 Ini adalah sub project distributor yg mana bagian dari project toko
 
 ada 2 entitiy :
@@ -7,7 +8,7 @@ ada 2 entitiy :
 - LocationMD
 - StockMD
 - IsDelete
-- 
+
 * second distributor
 - NameSD
 - AddressSD	
